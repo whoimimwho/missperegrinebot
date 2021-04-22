@@ -74,7 +74,7 @@ UNGBAN_ERRORS = {
 
 @run_async
 @support_plus
-def glban(update: Update, context: CallbackContext):
+def gban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     user = update.effective_user
@@ -537,7 +537,7 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat is enforcing *gbans*: `{sql.does_chat_gban(chat_id)}`."
 
 
-GBAN_HANDLER = CommandHandler("glban", glban)
+GBAN_HANDLER = CommandHandler("gban", gban)
 UNGBAN_HANDLER = CommandHandler("ungban", ungban)
 GBAN_LIST = CommandHandler("gbanlist", gbanlist)
 
