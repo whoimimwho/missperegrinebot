@@ -123,7 +123,7 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await tbot.download_media(message, photo)
     else:
-        await img.reply("`Reply to photo or sticker nigger.`")
+        await img.reply("`Reply to photo or sticker plz.`")
         return
 
     if photo:
@@ -148,7 +148,7 @@ async def okgoogle(img):
                 "\n`Parsing source now. Maybe.`"
             )
         else:
-            await dev.edit("`Google told me to fuck off.`")
+            await dev.edit("`Google told me > Yeah NO`")
             return
 
         os.remove(name)
@@ -159,7 +159,7 @@ async def okgoogle(img):
         if guess and imgspage:
             await dev.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
         else:
-            await dev.edit("`Can't find this piece of shit.`")
+            await dev.edit("`Can't find this ;__;`")
             return
 
         if img.pattern_match.group(1):
