@@ -72,10 +72,11 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+SAITAMA_IMG = "https://telegra.ph/file/81c93aec935bc10bc32be.gif"
 
 PM_START_TEXT = """
 `Hellow My name is` *Miss Peregrine*
-`I'm here to help you manage your groups! Hit` *📚Commands* button below to find out more about how to use me to my full potential [.](https://telegra.ph/file/11c7f38631a5daad7a860.jpg) 
+`I'm here to help you manage your groups! Hit` *📚Commands* button below to find out more about how to use me to my full potential' 
 """
 
 buttons = [
