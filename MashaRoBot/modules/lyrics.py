@@ -12,7 +12,7 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
 
 from telethon import types
 from telethon.tl import functions
-from MashaRobot.MashaRobot import Masha
+from LaylaRobot.laylabot import layla
 from youtubesearchpython import SearchVideos
 from tswift import Song
 
@@ -38,8 +38,8 @@ async def is_register_admin(chat, user):
         )
     return None
 
-JULIASONG = "@MissperegrinebotMP3"
-JULIAVSONG = "@missperegrineMP4"
+JULIASONG = "@MissJuliaRobotMP3"
+JULIAVSONG = "@MissJuliaRobotMP4"
 
 
 @layla(pattern="^/lyrics ?(.*)")
