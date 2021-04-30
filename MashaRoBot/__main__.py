@@ -101,6 +101,14 @@ buttons = [
 HELP_STRINGS = """
 *『HELP BUTTONS HERE』*"""
 
+{}
+And the following:
+""".format(
+    dispatcher.bot.first_name,
+    "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
+)
+
+
 
 
 
