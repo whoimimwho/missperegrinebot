@@ -98,9 +98,95 @@ buttons = [
 ]
 
 
-HELP_STRINGS = """
-*『HELP BUTTONS HERE』*"""
+import importlib
+import time
+import re
+from sys import argv
+from typing import Optional
 
+from SaitamaRobot import (
+    ALLOW_EXCL,
+    CERT_PATH,
+    DONATION_LINK,
+    LOGGER,
+    OWNER_ID,
+    PORT,
+    TOKEN,
+    URL,
+    WEBHOOK,
+    SUPPORT_CHAT,
+    dispatcher,
+    StartTime,
+    telethn,
+    updater)
+
+# needed to dynamically load modules
+# NOTE: Module order is not guaranteed, specify that in the config file!
+from SaitamaRobot.modules import ALL_MODULES
+from SaitamaRobot.modules.helper_funcs.chat_status import is_user_admin
+from SaitamaRobot.modules.helper_funcs.misc import paginate_modules
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.error import (
+    BadRequest,
+    ChatMigrated,
+    NetworkError,
+    TelegramError,
+    TimedOut,
+    Unauthorized,
+)
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+)
+from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
+from telegram.utils.helpers import escape_markdown
+
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
+
+
+
+
+
+
+
+
+HELP_STRINGS = """
+Hey there! My name is *{}*.
+I'm a Hero For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+the things I can help you with.
+*Main* commands available:
+ • /help: PM's you this message.
+ • /help <module name>: PM's you info about that module.
+ • /donate: information on how to donate!
+ • /settings:
+   • in PM: will send you your settings for all supported modules.
+   • in a group: will redirect you to pm, with all that chat's settings.
 {}
 And the following:
 """.format(
@@ -108,6 +194,18 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
+SAITAMA_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,7 +214,7 @@ And the following:
    
    
 
-SAITAMA_IMG = "https://telegra.ph/file/df4dd222bafe2378b2c94.jpg"
+
 
 DONATE_STRING = """No need.. I'm rich"""
 
