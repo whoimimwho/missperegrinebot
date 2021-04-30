@@ -74,10 +74,10 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-PM_START_TEXT = """
+PM_START_TEXT = """[.](https://telegra.ph/file/d1d87a5032e1a662a4a0b.jpg)
 `Hellow My name is` *Miss Peregrine*
 `I'm here to help you manage your groups! Hit` *📚Commands* button below to find out more about how to use me to my full potential' 
-[.](https://telegra.ph/file/d1d87a5032e1a662a4a0b.jpg)"""
+"""
 
 buttons = [
     [
