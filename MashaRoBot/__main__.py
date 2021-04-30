@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 You can find my list of available commands with /help.
-i'm a group manager bot. Maintained by @iamchildofcosmos ❤
+i'm a group manager bot. Maintained by @iamchildofcosmos 
 
 """
 
@@ -64,7 +64,7 @@ Hey there! My name is *{}*.
 *Main* commands available:
  • /help: PM's you this message.
  • /help <module name>: PM's you info about that module.
- • /donate: information on how to donate!
+ 
  • /settings:
    • in PM: will send you your settings for all supported modules.
    • in a group: will redirect you to pm, with all that chat's settings.
@@ -78,8 +78,8 @@ And the following:
 
 SAITAMA_IMG = "https://telegra.ph/file/df4dd222bafe2378b2c94.jpg"
 
-
-"""
+DONATE_STRING = """R u lost baby girl!
+Supporting him; [IDF](t.me/iamchildofcosmos)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -197,7 +197,7 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="👰 Add **Miss Peregrine** to your group",
+                            text="👰 Add MiSs 𝐌𝐢𝐬𝐬 𝐏𝐞𝐫𝐞𝐠𝐫𝐢𝐧𝐞 to your group",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username))
                     ],
@@ -205,10 +205,7 @@ def start(update: Update, context: CallbackContext):
                          InlineKeyboardButton(
                              text="Support Group",
                              url=f"https://t.me/wearestrangethings"),
-                         
-                     
-                           
-                
+                        
                      [
                          InlineKeyboardButton(
                              text="☑️ Source code",
@@ -489,9 +486,9 @@ def donate(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True)
 
-        if OWNER_ID != 2563637 and DONATION_LINK:
+        if OWNER_ID != 254318997 and DONATION_LINK:
             update.effective_message.reply_text(
-                "You can also donate to the person currently running me "
+                "Listen take care urself"
                 "[here]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN)
 
@@ -541,9 +538,9 @@ def main():
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_")
 
-
-   
-
+    donate_handler = CommandHandler("donate", donate)
+    migrate_handler = MessageHandler(Filters.status_update.migrate,
+                                     migrate_chats)
 
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
