@@ -102,11 +102,11 @@ HELP_STRINGS = """
 *『HELP BUTTONS HERE』*"""
 
 
-{}
-And the following:
-""".format(
-    dispatcher.bot.first_name, ""
-    if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
+
+
+
+   
+   
 
 SAITAMA_IMG = "https://telegra.ph/file/df4dd222bafe2378b2c94.jpg"
 
