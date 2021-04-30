@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 You can find my list of available commands with /help.
-i'm a group manager bot. Maintained by @iamchildofcosmos 
+i'm a group manager bot. Maintained by iamchildofcosmos ❤
 
 """
 
@@ -78,8 +78,8 @@ And the following:
 
 SAITAMA_IMG = "https://telegra.ph/file/df4dd222bafe2378b2c94.jpg"
 
-DONATE_STRING = """R u lost baby girl!
-Supporting him; [IDF](t.me/iamchildofcosmos)"""
+DONATE_STRING = """Heya, glad to hear you want to donate!
+"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -92,7 +92,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("MashaRoBot.modules." +
+    imported_module = importlib.import_module("LaylaRobot.modules." +
                                               module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
@@ -197,7 +197,7 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="👰 Add MiSs 𝐌𝐢𝐬𝐬 𝐏𝐞𝐫𝐞𝐠𝐫𝐢𝐧𝐞 to your group",
+                            text="👰 Add Me",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username))
                     ],
@@ -205,7 +205,10 @@ def start(update: Update, context: CallbackContext):
                          InlineKeyboardButton(
                              text="Support Group",
                              url=f"https://t.me/wearestrangethings"),
-                        
+                         
+                            
+                            
+                     ],
                      [
                          InlineKeyboardButton(
                              text="☑️ Source code",
@@ -488,7 +491,7 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 254318997 and DONATION_LINK:
             update.effective_message.reply_text(
-                "Listen take care urself"
+                "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN)
 
