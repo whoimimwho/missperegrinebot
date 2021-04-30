@@ -82,7 +82,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ADD ➕️", url="t.me/missperegrinebot?startgroup=true"),
+            text="➕ ADD ➕️", url="t.me/missperegrinebot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ℹ️ ABOUT", callback_data="masha_"),
@@ -149,7 +149,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
+MASHA_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
 
 
 
@@ -423,7 +423,7 @@ def Masha_about_callback(update: Update, context: CallbackContext):
                  ❍ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
                  ❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  ❍ I check for admins' permissions before executing any command and more stuffs
-                 \n_Masha's licensed under the GNU General Public License v3.0_
+                 \n_licensed under the GNU General Public License v3.0_
                  Here is the [💾Repository](https://github.com.
                  If you have any question about Miss Peregrine, let us know at @iamchildofcosmos.""",
             parse_mode=ParseMode.MARKDOWN,
